@@ -23,6 +23,7 @@ int main() {
     int err = bind(s, (LPSOCKADDR) &sin, sizeof(sin));
 
     if (err == -1) {
+        closesocket(s);
         perror("ERROR");
         exit(EXIT_FAILURE);
     }
@@ -31,17 +32,20 @@ int main() {
 
     SOCKADDR_IN from;
     int fromlen = sizeof(from);
-    int s1 = accept(s,(struct sockaddr*)&from,&fromlen);
+    int s1 = accept(s, (struct sockaddr*) &from, &fromlen);
 
-    char *buff = malloc(150);
+    char *buff = malloc(1024);
 
     while (1) {
-        recv(s, buff, sizeof buff, 0);
-        if(strcmp(buff, "exit") != 0)
+        int status = recv(s1, buff, sizeof buff, 0);
+        if(strcmp(buff, "exit") == 0)
             break;
-        buff = "ok";
-        send(s, buff, sizeof buff, 0);
+        printf("Received from client: %s\nPlease enter answer: ", buff);
+        memset(buff, 0, 1024);
+        gets(buff);
+        status = send(s1, buff, sizeof buff, 0);
     }
-
+    closesocket(s);
+    closesocket(s1);
     return 0;
 }
