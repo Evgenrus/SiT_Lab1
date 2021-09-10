@@ -1,4 +1,4 @@
-C:\Users\EVGEN\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\212.5080.54\bin\cmake\win\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - MinGW Makefiles" D:\dev\SiT\Lab1\server
+C:\Users\EVGEN\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\212.5080.54\bin\cmake\win\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - MinGW Makefiles" D:\dev\SiT\Lab1\TCP_C\server
 -- The C compiler identification is GNU 8.1.0
 -- Detecting C compiler ABI info
 -- Detecting C compiler ABI info - done
@@ -7,4 +7,4 @@ C:\Users\EVGEN\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\212.5080.54\bin\c
 -- Detecting C compile features - done
 -- Configuring done
 -- Generating done
--- Build files have been written to: D:/dev/SiT/Lab1/server/cmake-build-debug
+-- Build files have been written to: D:/dev/SiT/Lab1/TCP_C/server/cmake-build-debug

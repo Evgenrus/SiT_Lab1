@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-D:/dev/SiT/Lab1/client/main.c
+D:/dev/SiT/Lab1/TCP_C/client/main.c
 stdio.h
 -
 winsock2.h

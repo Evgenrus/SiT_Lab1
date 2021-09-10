@@ -1,9 +1,11 @@
 #include <stdio.h>
 #include <winsock2.h>
 
+#define BUFFSIZE 1024
+
 int init() {
     WSADATA WsaData;
-    int err = WSAStartup (0x0101, &WsaData);
+    int err = WSAStartup (MAKEWORD(2, 2), &WsaData);
     if (err == SOCKET_ERROR) {
         printf ("WSAStartup() failed: %ld\n",GetLastError ());
         exit(EXIT_FAILURE);
@@ -28,18 +30,18 @@ int main() {
         exit(EXIT_FAILURE);
     }
 
-    char *buff = malloc(1024);
+    char *buff = malloc(BUFFSIZE);
 
     while(strcmp(buff, "close") != 0) {
-        memset(buff, 0, 1024);
+        memset(buff, 0, BUFFSIZE);
         gets(buff);
-        int status = send(s, buff, sizeof buff, 0);
+        int status = send(s, buff, BUFFSIZE, 0);
         if (status < 0) {
             closesocket(s);
             perror("Fail");
             exit(EXIT_FAILURE);
         }
-        status = recv(s, buff, sizeof buff, 0);
+        status = recv(s, buff, BUFFSIZE, 0);
         if (status < 0) {
             closesocket(s);
             perror("Fail");
