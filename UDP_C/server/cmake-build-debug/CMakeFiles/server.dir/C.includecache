@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/dev/SiT/Lab1/UDP_C/server/main.c
+stdio.h
+-
+winsock2.h
+-
+windows.h
+D:/dev/SiT/Lab1/UDP_C/server/windows.h
+
