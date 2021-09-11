@@ -43,11 +43,12 @@ int main() {
         if(strcmp(buff, "exit") == 0)
             break;
         printf("Received from client: %s\nPlease enter answer: ", buff);
-        memset(buff, 0, BUFFSIZE);
+        memset(buff, '\0', BUFFSIZE);
         gets(buff);
         status = send(s1, buff, sizeof buff, 0);
     }
     closesocket(s);
     closesocket(s1);
+    WSACleanup();
     return 0;
 }
