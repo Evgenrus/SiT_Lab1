@@ -8,7 +8,7 @@ from client import *
 class TestUDP(unittest.TestCase):
 
     # Место для ваших страданий :)
-    # Ведь нужно еще
+    # Ведь нужно написать еще 17 тестов
 
     def test_F(self):
         self.assertEqual(F('килобайт'), 'илобайт')
