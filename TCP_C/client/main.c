@@ -23,7 +23,8 @@ int main() {
     anAddr.sin_port = htons(80);
     anAddr.sin_addr.S_un.S_addr = inet_addr("127.0.0.1");
 
-    int err = connect( s, (LPSOCKADDR)&anAddr, sizeof(anAddr) );
+    int insize = sizeof(anAddr);
+    int err = connect( s, (LPSOCKADDR)&anAddr, insize );
     if (err < 0) {
         closesocket(s);
         perror("Connection failed");
@@ -49,7 +50,7 @@ int main() {
         }
         printf("Received from server: %s\nPlease enter answer: ", buff);
     }
-
+    shutdown(s, SD_BOTH);
     closesocket(s);
     return 0;
 }
