@@ -22,7 +22,8 @@ int main() {
     sin.sin_port = htons(80);
     sin.sin_addr.s_addr = INADDR_ANY;
 
-    int err = bind(s, (LPSOCKADDR) &sin, sizeof(sin));
+    int sinsize = sizeof(sin);
+    int err = bind(s, (LPSOCKADDR) &sin, sinsize);
 
     if (err == -1) {
         closesocket(s);
@@ -40,8 +41,11 @@ int main() {
 
     while (1) {
         int status = recv(s1, buff, 1024, 0);
-        if(strcmp(buff, "exit") == 0)
+        if(strcmp(buff, "exit") == 0) {
+            shutdown(s, SD_RECEIVE);
+            shutdown(s1, SD_SEND);
             break;
+        }
         printf("Received from client: %s\nPlease enter answer: ", buff);
         memset(buff, '\0', BUFFSIZE);
         gets(buff);
